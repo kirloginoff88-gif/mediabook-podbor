@@ -1,0 +1,13 @@
+{
+  "name": "mediabook-podbor",
+  "version": "1.0.0",
+  "description": "МедиаПодбор: Telegram-бот и мини-приложение подбора рекламы Медиабук в Сочи",
+  "main": "src/start.js",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/start.js",
+    "test": "node --test test/run.js"
+  },
+  "license": "UNLICENSED"
+}
