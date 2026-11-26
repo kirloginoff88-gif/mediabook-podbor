@@ -40,26 +40,21 @@ main{padding:24px 20px 60px}
 .phone{max-width:560px;margin:0 auto;padding:0;overflow:hidden}
 .ph-top{padding:16px 20px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
 .ph-top b{font-size:15px}
-.prog{height:4px;background:var(--line)}.prog i{display:block;height:100%;background:var(--sea);transition:width .3s}
-.step{padding:20px;display:none;min-height:420px}.step.on{display:block}
-.step h3{margin:0 0 4px;font-size:18px}
-.hint{color:var(--mute);font-size:13px;margin:0 0 14px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.chip{border:1px solid var(--line);background:#fff;border-radius:22px;padding:7px 13px;font:500 13.5px Manrope,system-ui,sans-serif;cursor:pointer;color:var(--ink);transition:.15s}
-.chip:hover{border-color:var(--sea)}
-.chip.on{background:var(--sea);border-color:var(--sea);color:#fff}
+.question{padding:16px 20px;border-bottom:1px solid var(--line)}
+.question h3{margin:0 0 4px;font-size:18px}
+.hint{color:var(--mute);font-size:13px;margin:0 0 10px}
+.dropdown summary,.answer-select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:600 14px Manrope,system-ui,sans-serif;cursor:pointer}
+.dropdown-options{display:grid;margin-top:4px;max-height:230px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+.dropdown-options label{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer;font-size:14px}
+.dropdown-options input{accent-color:var(--sea);width:18px;height:18px;flex:none;margin:0}
 label.l{display:block;font-weight:700;font-size:13px;margin:14px 0 8px;color:var(--ink2)}
 input[type=range]{width:100%;accent-color:var(--sea)}
-input[type=number]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:600 15px Manrope,system-ui,sans-serif}
 .big{font-size:26px;font-weight:800;color:var(--sea)}
 .ph-nav{display:flex;gap:10px;padding:14px 20px;border-top:1px solid var(--line)}
 .btn{border:0;border-radius:11px;padding:12px 16px;font:700 14px Manrope,system-ui,sans-serif;cursor:pointer}
 .btn.p{background:var(--sea);color:#fff;flex:1}.btn.s{background:var(--sea2);color:var(--sea)}
 .btn.g{background:var(--sand);color:var(--ink);flex:1}
 .btn:disabled{opacity:.4;cursor:default}
-.skip{display:block;width:100%;margin-top:14px;background:none;border:1px dashed #b9c8d1;border-radius:11px;padding:10px;font:600 13px Manrope,system-ui,sans-serif;color:var(--ink2);cursor:pointer}
-.skip:hover{border-color:var(--sea);color:var(--sea)}
-.unk{color:var(--mute);font-size:13px;font-weight:600}
 .empty{text-align:center;padding:60px 30px;color:var(--mute)}
 .empty .em{font-size:42px;margin-bottom:8px}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
@@ -118,7 +113,7 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
 <header>
   <div class="wrap">
     <div class="brand"><div class="logo">М</div><div><h1>МедиаПодбор</h1></div><span class="tag">концепт · Медиабук Сочи</span></div>
-    <p class="sub">Клиент отвечает на 6 вопросов о своём бизнесе, а приложение собирает медиаплан из 37 офлайн-направлений (приоритет — наружная реклама) reklamavsochi.ru. Для каждого носителя считаются контакты, заявки, стоимость заявки и окупаемость.</p>
+    <p class="sub">Клиент отвечает на вопросы о своём бизнесе, а приложение собирает медиаплан из 37 офлайн-направлений (приоритет — наружная реклама) reklamavsochi.ru. Для каждого носителя считаются контакты, заявки, стоимость заявки.</p>
     <nav>
       <button class="on" data-v="app">Прототип</button>
       <button data-v="concept">Концепт и логика</button>
@@ -132,61 +127,49 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
 <section class="view on" id="v-app">
 <div>
   <div class="card phone" id="wizard">
-    <div class="ph-top"><b id="stTitle">Шаг 1 из 6</b><button class="btn s" style="padding:6px 10px;font-size:12px" id="demo">Пример</button></div>
-    <div class="prog"><i id="progBar" style="width:16%"></i></div>
+    <div class="ph-top"><b>Анкета для подбора рекламы</b><button class="btn s" style="padding:6px 10px;font-size:12px" id="demo">Пример</button></div>
 
-    <div class="step on" data-s="1">
+    <div class="question">
       <h3>Чем занимается бизнес?</h3>
       <p class="hint">Можно выбрать до 3 направлений. Если не знаете ответа на любой вопрос, пропустите его: подберём по средним данным</p>
-      <div class="chips" id="c-biz"></div>
+      <div id="c-biz" data-label="Направления бизнеса"></div>
     </div>
 
-    <div class="step" data-s="2">
+    <div class="question">
       <h3>Где вы работаете?</h3>
       <p class="hint">Районы Большого Сочи, можно выбрать несколько</p>
-      <div class="chips" id="c-dist"></div>
+      <div id="c-dist" data-label="Районы работы"></div>
       <label class="l">Формат работы (можно несколько)</label>
-      <div class="chips" id="c-mode"></div>
+      <div id="c-mode" data-label="Формат работы"></div>
     </div>
 
-    <div class="step" data-s="3">
+    <div class="question">
       <h3>Кто ваши клиенты?</h3>
       <p class="hint">До 3 сегментов, самые важные</p>
-      <div class="chips" id="c-aud"></div>
+      <div id="c-aud" data-label="Клиенты"></div>
     </div>
 
-    <div class="step" data-s="4">
+    <div class="question">
       <h3>Какая цель рекламы?</h3>
       <p class="hint">Можно несколько. От цели зависит, что считаем главным: заявки или охват</p>
-      <div class="chips" id="c-goal"></div>
+      <div id="c-goal" data-label="Цели рекламы"></div>
       <label class="l">Сезон работы рекламы (можно несколько)</label>
-      <div class="chips" id="c-season"></div>
+      <div id="c-season" data-label="Сезон рекламы"></div>
     </div>
 
-    <div class="step" data-s="5">
+    <div class="question">
       <h3>Бюджет и срок</h3>
       <p class="hint">Бюджет на размещение в месяц</p>
       <div class="big" id="budV">80 000 ₽</div>
-      <input type="range" id="bud" min="10000" max="1000000" step="5000" value="80000">
-      <div class="chips" id="c-budp"></div>
+      <input type="range" id="bud" aria-label="Бюджет на размещение в месяц" min="10000" max="1000000" step="5000" value="80000">
+      <label class="l" for="budp">Готовые варианты бюджета</label>
+      <select class="answer-select" id="budp"></select>
       <label class="l">Длительность кампании</label>
-      <div class="chips" id="c-dur"></div>
-    </div>
-
-    <div class="step" data-s="6">
-      <h3>Экономика и креатив</h3>
-      <p class="hint">Нужно, чтобы посчитать окупаемость</p>
-      <label class="l">Средний чек, ₽</label>
-      <input type="number" id="check" placeholder="например, 5 000" min="100" step="100">
-      <label class="l">Сколько заявок становятся продажей, %</label>
-      <input type="number" id="conv" placeholder="например, 25" min="1" max="100">
-      <label class="l">Что из рекламных материалов уже есть</label>
-      <div class="chips" id="c-crea"></div>
+      <div id="c-dur" data-label="Длительность кампании"></div>
     </div>
 
     <div class="ph-nav">
-      <button class="btn s" id="back" disabled>Назад</button>
-      <button class="btn p" id="next">Далее</button>
+      <button class="btn g" id="next">Подобрать рекламу</button>
     </div>
   </div>
 
@@ -207,7 +190,6 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
   <div><b>3 · Аудитория</b>8 сегментов, до 3</div>
   <div><b>4 · Цель и сезон</b>несколько целей и сезонов</div>
   <div><b>5 · Бюджет и срок</b>10 тыс. – 1 млн ₽/мес, 1–12 мес</div>
-  <div><b>6 · Экономика</b>чек, конверсия, наличие креатива</div>
   <div><b>Результат</b>медиаплан, KPI, ROMI, вывод, заявка</div>
 </div>
 
@@ -227,7 +209,7 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
 
 <h3>Алгоритм подбора</h3>
 <ol>
-<li><b>Пропуски.</b> Любой шаг можно пропустить. Тогда ниша и цель считаются нейтральными (средний балл), район — весь Большой Сочи, сезон — межсезонье, бюджет — стартовые 70 000 ₽, креатив — «нет, закладываем изготовление». Без чека и конверсии окупаемость не считается. В результате видно, что было пропущено.</li>
+<li><b>Пропуски.</b> Ответы можно пропустить. Тогда ниша и цель считаются нейтральными (средний балл), район — весь Большой Сочи, сезон — межсезонье, бюджет — стартовые 70 000 ₽, изготовление рекламных материалов закладывается в смету. В результате видно, что было пропущено.</li>
 <li><b>Фильтр.</b> Носитель исключается, если его нет в выбранных районах, он не работает в выбранный сезон, его минимальный срок длиннее кампании или минимальный пакет дороже бюджета. Причина каждого исключения показывается клиенту.</li>
 <li><b>Скоринг.</b> <code>Балл = 3×ниша + 2×аудитория + 2×цель + сезон + район + эффективность + приоритет</code>. Приоритет группы: улица +3, транспорт +1,5, курорты +1, дома и заведения +0,5, радио/ТВ/пресса −1. Лучший уличный формат, который помещается в половину бюджета, всегда попадает в план первым. Эффективность считается по логарифмической шкале CPL (для цели «заявки») или CPM (для узнаваемости), от −2 до +2.</li>
 <li><b>Сборка.</b> Берутся лучшие форматы, пока хватает бюджета: до 5 каналов, не больше 2 из одной группы (дом, улица, транспорт и т.д.). Остаток бюджета по кругу распределяется на дополнительные носители в пределах реального инвентаря района.</li>
@@ -268,7 +250,6 @@ const AUD=[['locals','Местные жители'],['tourists','Туристы'
 const GOAL=[['leads','Звонки и заявки'],['awareness','Узнаваемость бренда'],['opening','Открытие новой точки'],['event','Событие / акция']];
 const SEASON=[['summer','Лето (май–сент.)'],['winter','Зима (дек.–март)'],['off','Межсезонье']];
 const DUR=[[1,'1 мес'],[3,'3 мес'],[6,'6 мес'],[12,'12 мес']];
-const CREA=[['video','Есть видеоролик и макеты'],['layout','Есть только макет/логотип'],['none','Ничего нет']];
 const GROUPS={home:['Жилые дома','#0f7c8c'],street:['Улица','#f2a541'],media:['Радио, ТВ, пресса','#7b61c9'],indoor:['Внутри заведений','#1f8a4c'],transit:['Транспорт','#d0533f'],resort:['Курорты','#2c8fd6'],promo:['Промо','#c9418f']};
 const B=(o)=>Object.assign({cafe:1,delivery:1,beauty:1,clinic:1,fitness:1,kids:1,realty:1,hotel:1,tour:1,auto:1,retail:1,ecom:1,repair:1,finance:1,events:1,b2b:0,transfer:1,pharma:1,edu:1},o);
 
@@ -487,59 +468,88 @@ const STATIONS=[['Европа плюс','104,4',58800,['youth','locals']],['А�
 
 /* ===================== СОСТОЯНИЕ ===================== */
 let P={};
-const S={biz:[],dist:[],mode:[],aud:[],goal:[],season:[],budget:80000,dur:3,check:null,conv:null,crea:null};
-let step=1;
+const S={biz:[],dist:[],mode:[],aud:[],goal:[],season:[],budget:80000,dur:3};
 const $=(s)=>document.querySelector(s);
 const rub=(n)=>Math.round(n).toLocaleString('ru-RU')+' ₽';
 const num=(n)=>n>=1e6?(n/1e6).toFixed(n>=1e7?0:1).replace('.',',')+' млн':n>=1e4?Math.round(n/1000).toLocaleString('ru-RU')+' тыс.':Math.round(n).toLocaleString('ru-RU');
 const name=(arr,id)=>(arr.find(x=>x[0]==id)||[,''])[1];
 
-function chips(el,arr,key,multi,maxN){
-  const box=$(el);box.innerHTML='';
-  arr.forEach(([id,label])=>{
-    const b=document.createElement('button');b.className='chip';b.textContent=label;b.dataset.id=id;
-    const on=()=>multi?S[key].includes(id):S[key]==id;
-    if(on())b.classList.add('on');
-    b.onclick=()=>{
-      if(multi){
-        let a=S[key];
-        if(key==='dist'&&id==='all')a=a.includes('all')?[]:['all'];
-        else{a=a.filter(x=>x!=='all'||key!=='dist');a=a.includes(id)?a.filter(x=>x!==id):(maxN&&a.length>=maxN?a:[...a,id]);}
-        S[key]=a;
-      }else{const v=(typeof arr[0][0]==='number')?+id:id;S[key]=S[key]===v?null:v;}
-      chips(el,arr,key,multi,maxN);updNav();
+function answers(key, options, max){
+  const container=$('#c-'+key);
+  const label=container.dataset.label;
+  if(!Array.isArray(S[key])){
+    const select=document.createElement('select');
+    select.className='answer-select';
+    select.setAttribute('aria-label',label);
+    select.add(new Option('Не указано','',false,S[key]==null));
+    options.forEach(([id,title])=>select.add(new Option(title,id,false,S[key]===id)));
+    select.onchange=()=>{S[key]=options.find(([id])=>String(id)===select.value)?.[0]??null};
+    container.replaceChildren(select);
+    return;
+  }
+  const dropdown=document.createElement('details');
+  dropdown.className='dropdown';
+  const summary=document.createElement('summary');
+  const list=document.createElement('div');
+  list.className='dropdown-options';
+  const inputs=options.map(([id,title])=>{
+    const row=document.createElement('label');
+    const input=document.createElement('input');
+    input.type='checkbox';
+    input.value=id;
+    input.onchange=()=>{
+      const selected=S[key].filter(value=>value!==id);
+      if(input.checked){
+        S[key]=key==='dist'&&id==='all'?['all']:[...selected.filter(value=>key!=='dist'||value!=='all'),id];
+      }else S[key]=selected;
+      update();
     };
-    box.appendChild(b);
+    row.append(input,title);
+    list.append(row);
+    return input;
   });
+  function update(){
+    const selected=options.filter(([id])=>S[key].includes(id)).map(([,title])=>title);
+    summary.textContent=selected.join(', ')||'Выбрать';
+    summary.setAttribute('aria-label',label+': '+summary.textContent);
+    inputs.forEach(input=>{
+      input.checked=S[key].includes(input.value);
+      input.disabled=!!(max&&selected.length>=max&&!input.checked);
+    });
+  }
+  update();
+  dropdown.append(summary,list);
+  container.replaceChildren(dropdown);
+}
+const budgetPresets=[30000,80000,150000,300000,600000];
+const budgetSelect=$('#budp');
+budgetSelect.add(new Option('Свой бюджет','custom'));
+budgetPresets.forEach(value=>budgetSelect.add(new Option(rub(value),value)));
+budgetSelect.add(new Option('Не знаю',''));
+function renderBudget(){
+  $('#bud').value=S.budget??70000;
+  $('#budV').textContent=S.budget===null?'Не указан (расчёт от 70 000 ₽)':rub(S.budget);
+  budgetSelect.value=S.budget===null?'':budgetPresets.includes(S.budget)?String(S.budget):'custom';
 }
 function renderInputs(){
-  chips('#c-biz',BIZ,'biz',true,3);chips('#c-dist',DIST,'dist',true);chips('#c-mode',MODE,'mode',true);
-  chips('#c-aud',AUD,'aud',true,3);chips('#c-goal',GOAL,'goal',true);chips('#c-season',SEASON,'season',true);
-  chips('#c-dur',DUR,'dur');chips('#c-crea',CREA,'crea');
-  const bp=$('#c-budp');bp.innerHTML='';
-  [30000,80000,150000,300000,600000].forEach(v=>{const b=document.createElement('button');b.className='chip'+(S.budget==v?' on':'');b.textContent=num(v)+' ₽';b.onclick=()=>{S.budget=v;$('#bud').value=v;renderInputs()};bp.appendChild(b)});
-  $('#bud').value=S.budget||70000;$('#budV').innerHTML=S.budget?rub(S.budget):'<span class="unk">Не указан — посчитаем стартовый пакет 70 000 ₽</span>';
-  $('#check').value=S.check??'';$('#conv').value=S.conv??'';
+  answers('biz',BIZ,3);answers('dist',DIST);answers('mode',MODE);
+  answers('aud',AUD,3);answers('goal',GOAL);answers('season',SEASON);
+  answers('dur',DUR);
+  renderBudget();
 }
-$('#bud').oninput=e=>{S.budget=+e.target.value;$('#budV').textContent=rub(S.budget);[...$('#c-budp').children].forEach(c=>c.classList.remove('on'));updNav()};
-$('#check').oninput=e=>{const v=+e.target.value;S.check=v>0?v:null;updNav()};
-$('#conv').oninput=e=>{const v=+e.target.value;S.conv=v>0?Math.min(100,v):null;updNav()};
-const SKIP={1:()=>{S.biz=[]},2:()=>{S.dist=[];S.mode=[]},3:()=>{S.aud=[]},4:()=>{S.goal=[];S.season=[]},5:()=>{S.budget=null;S.dur=null},6:()=>{S.check=null;S.conv=null;S.crea=null}};
-document.querySelectorAll('.step').forEach(st=>{
-  const b=document.createElement('button');b.className='skip';b.textContent='Не знаю — пропустить этот шаг';
-  b.onclick=()=>{SKIP[+st.dataset.s]();renderInputs();if(step<6){step++;updNav()}else run()};st.appendChild(b);
-});
-
-function answered(){return step==1?S.biz.length>0:step==2?(S.dist.length>0||S.mode.length>0):step==3?S.aud.length>0:step==4?(S.goal.length>0||S.season.length>0):step==5?!!(S.budget||S.dur):!!(S.check||S.conv||S.crea)}
-function updNav(){
-  document.querySelectorAll('.step').forEach(s=>s.classList.toggle('on',+s.dataset.s===step));
-  $('#stTitle').textContent='Шаг '+step+' из 6';$('#progBar').style.width=(step/6*100)+'%';
-  $('#back').disabled=step===1;$('#next').disabled=false;
-  $('#next').textContent=step===6?'Подобрать рекламу':answered()?'Далее':'Пропустить';$('#next').className='btn '+(step===6?'g':'p');
-}
-$('#next').onclick=()=>{if(step<6){step++;updNav()}else{run()}};
-$('#back').onclick=()=>{if(step>1){step--;updNav()}};
-$('#demo').onclick=()=>{Object.assign(S,{biz:['clinic'],dist:['adler','khosta'],mode:['point'],aud:['locals','families','senior'],goal:['leads','opening'],season:['off'],budget:80000,dur:3,check:9000,conv:30,crea:'layout'});renderInputs();step=6;updNav();run()};
+budgetSelect.onchange=()=>{
+  if(budgetSelect.value==='custom'){
+    S.budget=+$('#bud').value;
+    $('#budV').textContent=rub(S.budget);
+    $('#bud').focus();
+    return;
+  }
+  S.budget=budgetSelect.value?+budgetSelect.value:null;
+  renderBudget();
+};
+$('#bud').oninput=e=>{S.budget=+e.target.value;renderBudget()};
+$('#next').onclick=run;
+$('#demo').onclick=()=>{Object.assign(S,{biz:['clinic'],dist:['adler','khosta'],mode:['point'],aud:['locals','families','senior'],goal:['leads','opening'],season:['off'],budget:80000,dur:3});renderInputs();run()};
 
 /* ===================== ДВИЖОК ПОДБОРА ===================== */
 function seasonK(f){
@@ -612,12 +622,10 @@ function nextCost(p){
 }
 function resolveP(){
   P={biz:S.biz,dist:S.dist.length?S.dist:['all'],mode:S.mode.length?S.mode:['city'],aud:S.aud,goal:S.goal,season:S.season.length?S.season:['off'],
-     budget:S.budget||70000,dur:S.dur||3,check:S.check,conv:S.conv,crea:S.crea||'none',skipped:[]};
+     budget:S.budget||70000,dur:S.dur||3,check:null,conv:null,crea:'none',econ:false,skipped:[]};
   if(!S.biz.length)P.skipped.push('ниша');if(!S.dist.length)P.skipped.push('район → весь Большой Сочи');if(!S.mode.length)P.skipped.push('формат работы');
   if(!S.aud.length)P.skipped.push('аудитория');if(!S.goal.length)P.skipped.push('цель');if(!S.season.length)P.skipped.push('сезон → межсезонье');
   if(!S.budget)P.skipped.push('бюджет → стартовый 70 000 ₽');if(!S.dur)P.skipped.push('срок → 3 мес');
-  if(!S.check||!S.conv)P.skipped.push('чек/конверсия → без расчёта окупаемости');if(!S.crea)P.skipped.push('креатив → закладываем изготовление');
-  P.econ=!!(S.check&&S.conv);
 }
 function run(){
   resolveP();
@@ -755,8 +763,8 @@ function render(plan,evals,rem){
 }
 function resbar(){return '<div class="resbar"><h2>Ваш медиаплан</h2><div style="display:flex;gap:8px"><button class="btn s" onclick="editAnswers()">← Изменить ответы</button><button class="btn s" onclick="resetAll()">Новый подбор</button></div></div>'}
 function showResult(){$('#wizard').hidden=true;$('#result').hidden=false;window.scrollTo({top:0,behavior:'smooth'});if(window.TGA)TGA.onResult()}
-function editAnswers(){$('#result').hidden=true;$('#wizard').hidden=false;step=1;updNav();window.scrollTo({top:0});if(window.TGA)TGA.onWizard()}
-function resetAll(){Object.assign(S,{biz:[],dist:[],mode:[],aud:[],goal:[],season:[],budget:80000,dur:3,check:null,conv:null,crea:null});renderInputs();editAnswers()}
+function editAnswers(){$('#result').hidden=true;$('#wizard').hidden=false;window.scrollTo({top:0});if(window.TGA)TGA.onWizard()}
+function resetAll(){Object.assign(S,{biz:[],dist:[],mode:[],aud:[],goal:[],season:[],budget:80000,dur:3});renderInputs();editAnswers()}
 function reason(p){
   const f=p.r.f;let t=f.why.replace('{inv}',p.r.inv!=null?(f.id==='mail'?(p.r.inv*1000).toLocaleString('ru-RU')+' ящиков':p.r.inv+' ед.'):'');
   const aud=P.aud.filter(a=>(f.aud[a]||0)>=3).map(a=>name(AUD,a).toLowerCase());
@@ -793,7 +801,7 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+b.dataset.v));
 });
-renderInputs();updNav();
+renderInputs();
 
 /* ===================== TELEGRAM MINI APP ===================== */
 (function(){
@@ -823,13 +831,12 @@ renderInputs();updNav();
     }else post('');
   }
   tg.MainButton.onClick(sendLead);
-  tg.BackButton.onClick(()=>{if(!$('#result').hidden)editAnswers();else if(step>1){step--;updNav()}});
-  const origUpd=updNav;
-  updNav=function(){origUpd();if($('#result').hidden){step>1?tg.BackButton.show():tg.BackButton.hide()}};
+  tg.BackButton.hide();
+  tg.BackButton.onClick(()=>{if(!$('#result').hidden)editAnswers()});
   window.TGA={
     onResult(){sent=false;tg.BackButton.show();tg.MainButton.setParams({text:'Отправить план менеджеру',color:'#0f7c8c',text_color:'#ffffff',is_active:true,is_visible:true});
       const cta=document.querySelector('.cta a');if(cta){cta.textContent='Отправить план менеджеру';cta.removeAttribute('href');cta.onclick=(e)=>{e.preventDefault();sendLead()}}},
-    onWizard(){tg.MainButton.hide();updNav()}
+    onWizard(){tg.MainButton.hide();tg.BackButton.hide()}
   };
 })();
 </script>
