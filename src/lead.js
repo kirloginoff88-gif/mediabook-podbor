@@ -22,17 +22,17 @@ function clean(plan) {
     src: str(p.src, 64).replace(/[^\w\-.]/g, ''),
     dur: Math.min(24, numv(p.dur)) || 1,
     channels: (Array.isArray(p.channels) ? p.channels : []).slice(0, 8).map(c => ({
-      name: str(c.name, 120), units: str(c.units, 200), cost: numv(c.cost), contacts: numv(c.contacts), leads: numv(c.leads),
+      name: str(c.name, 120), units: str(c.units, 200), cost: numv(c.cost), contacts: numv(c.contacts),
     })),
-    totals: { cost: numv(t.cost), contacts: numv(t.contacts), lo: numv(t.lo), hi: numv(t.hi), cpl: numv(t.cpl), one: numv(t.one) },
+    totals: { cost: numv(t.cost), contacts: numv(t.contacts), one: numv(t.one) },
   };
 }
 
 function planText(p) {
   const lines = p.channels.map((c, i) =>
-    `${i + 1}. ${esc(c.name)} — ${rub(c.cost)}/мес, ${big(c.contacts)} контактов, ~${c.leads.toFixed(1).replace('.', ',')} заявки\n   <i>${esc(c.units)}</i>`);
-  return lines.join('\n') +
-    `\n\n<b>Итого:</b> ${rub(p.totals.cost)}/мес · ${big(p.totals.contacts)} контактов · ${p.totals.lo}–${p.totals.hi} заявок/мес · заявка ≈ ${rub(p.totals.cpl)}` +
+    `${i + 1}. ${esc(c.name)} — ${rub(c.cost)}/мес, ${big(c.contacts)} контактов\n   <i>${esc(c.units)}</i>`);
+  return 'Все цифры медиаплана ориентировочные.\n\n' + lines.join('\n') +
+    `\n\n<b>Итого:</b> ${rub(p.totals.cost)}/мес · ${big(p.totals.contacts)} контактов` +
     (p.totals.one ? `\nРазово (печать, ролики): ${rub(p.totals.one)}` : '') +
     `\nСрок: ${p.dur} мес · вся кампания ≈ ${rub(p.totals.cost * p.dur + p.totals.one)}`;
 }

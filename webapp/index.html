@@ -71,7 +71,7 @@ h2{font-size:20px;margin:28px 0 10px;letter-spacing:-.2px}
 .mp-t{flex:1;min-width:220px}
 .mp-t b{font-size:16px}
 .mp-t .w{font-size:13px;color:var(--ink2);margin-top:2px}
-.mp-n{display:grid;grid-template-columns:repeat(4,auto);gap:4px 18px;text-align:right}
+.mp-n{display:grid;grid-template-columns:repeat(2,auto);gap:4px 18px;text-align:right}
 @media(max-width:620px){.mp-n{grid-template-columns:repeat(2,auto);text-align:left}}
 .mp-n div span{display:block;font-size:11px;color:var(--mute);font-weight:600}
 .mp-n div b{font-size:15px}
@@ -113,7 +113,7 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
 <header>
   <div class="wrap">
     <div class="brand"><div class="logo">М</div><div><h1>МедиаПодбор</h1></div><span class="tag">концепт · Медиабук Сочи</span></div>
-    <p class="sub">Клиент отвечает на вопросы о своём бизнесе, а приложение собирает медиаплан из 37 офлайн-направлений (приоритет — наружная реклама) reklamavsochi.ru. Для каждого носителя считаются контакты, заявки, стоимость заявки.</p>
+    <p class="sub">Клиент отвечает на вопросы о своём бизнесе, а приложение собирает медиаплан из 37 офлайн-направлений (приоритет — наружная реклама) reklamavsochi.ru. Для каждого носителя считаются контакты, заявки, ориентировочную стоимость размещения.</p>
     <nav>
       <button class="on" data-v="app">Прототип</button>
       <button data-v="concept">Концепт и логика</button>
@@ -151,7 +151,7 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
 
     <div class="question">
       <h3>Какая цель рекламы?</h3>
-      <p class="hint">Можно несколько. От цели зависит, что считаем главным: заявки или охват</p>
+      <p class="hint">Можно выбрать несколько целей.</p>
       <div id="c-goal" data-label="Цели рекламы"></div>
       <label class="l">Сезон работы рекламы (можно несколько)</label>
       <div id="c-season" data-label="Сезон рекламы"></div>
@@ -190,7 +190,7 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
   <div><b>3 · Аудитория</b>8 сегментов, до 3</div>
   <div><b>4 · Цель и сезон</b>несколько целей и сезонов</div>
   <div><b>5 · Бюджет и срок</b>10 тыс. – 1 млн ₽/мес, 1–12 мес</div>
-  <div><b>Результат</b>медиаплан, KPI, ROMI, вывод, заявка</div>
+  <div><b>Результат</b>медиаплан, оценка бюджета и контактов, возможность отправить заявку</div>
 </div>
 
 <h3>Почему именно эти параметры</h3>
@@ -200,10 +200,9 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
 <tr><td>Район</td><td>Сайт публикует инвентарь по районам: 60 000 почтовых ящиков, 2 070 стендов у подъездов, 290 стендов в лифтах, 68 мониторов СДЭК, аптеки, МФЦ. Приложение берёт столько носителей, сколько реально есть в выбранных районах.</td></tr>
 <tr><td>Формат точки</td><td>Если у бизнеса есть точка, гиперлокальные носители рядом с ней получают +2 балла. Для выездных и онлайн-бизнесов важнее охват по всему городу.</td></tr>
 <tr><td>Аудитория</td><td>Каждый носитель размечен по 8 сегментам. Например, аудитория кинотеатров по данным сайта на 62% состоит из людей 16–34 лет, у аптек «аудитория, которая реже пользуется интернетом», у МФЦ — деловая с доходом выше среднего.</td></tr>
-<tr><td>Цель</td><td>Цель «заявки» ранжирует носители по стоимости заявки (CPL), цель «узнаваемость» — по стоимости тысячи контактов (CPM).</td></tr>
+<tr><td>Цель</td><td>Цель учитывается при оценке соответствия каждого носителя.</td></tr>
 <tr><td>Сезон</td><td>Пляжные кабинки работают только с мая по сентябрь. Туристические носители летом получают ×1,3 к охвату, Красная Поляна зимой ×1,4.</td></tr>
 <tr><td>Срок</td><td>Указатели размещаются минимум на 6 месяцев, поэтому при коротком сроке они исключаются. Печать и ролики оплачиваются один раз на всю кампанию.</td></tr>
-<tr><td>Чек и конверсия</td><td>Выручка = заявки × конверсия × чек. Отсюда ROMI и точка безубыточности.</td></tr>
 <tr><td>Креатив</td><td>Добавляет разовые расходы на изготовление по ценам с сайта: ролик в МФЦ от 3 000 ₽, ТВ-ролик от 8 000 ₽, аудиоролик от 3 500 ₽.</td></tr>
 </table></div>
 
@@ -211,10 +210,10 @@ code{background:var(--sea2);padding:1px 6px;border-radius:5px;font-size:12.5px}
 <ol>
 <li><b>Пропуски.</b> Ответы можно пропустить. Тогда ниша и цель считаются нейтральными (средний балл), район — весь Большой Сочи, сезон — межсезонье, бюджет — стартовые 70 000 ₽, изготовление рекламных материалов закладывается в смету. В результате видно, что было пропущено.</li>
 <li><b>Фильтр.</b> Носитель исключается, если его нет в выбранных районах, он не работает в выбранный сезон, его минимальный срок длиннее кампании или минимальный пакет дороже бюджета. Причина каждого исключения показывается клиенту.</li>
-<li><b>Скоринг.</b> <code>Балл = 3×ниша + 2×аудитория + 2×цель + сезон + район + эффективность + приоритет</code>. Приоритет группы: улица +3, транспорт +1,5, курорты +1, дома и заведения +0,5, радио/ТВ/пресса −1. Лучший уличный формат, который помещается в половину бюджета, всегда попадает в план первым. Эффективность считается по логарифмической шкале CPL (для цели «заявки») или CPM (для узнаваемости), от −2 до +2.</li>
+<li><b>Скоринг.</b> Балл = 3×ниша + 2×аудитория + 2×цель + сезон + район + эффективность по CPM + приоритет группы.</li>
 <li><b>Сборка.</b> Берутся лучшие форматы, пока хватает бюджета: до 5 каналов, не больше 2 из одной группы (дом, улица, транспорт и т.д.). Остаток бюджета по кругу распределяется на дополнительные носители в пределах реального инвентаря района.</li>
-<li><b>Расчёт.</b> <code>Контакты = единицы × контакты на единицу × сезонный коэффициент</code>; <code>Заявки = контакты × коэффициент отклика носителя</code>. Заявки показываются коридором ±30%.</li>
-<li><b>Вывод.</b> Тезисы генерируются из данных: доля бюджета на локальные и охватные носители, лучший CPL, цифры сайта, причины отказа от сильных, но неподходящих форматов.</li>
+<li><b>Расчёт.</b> Контакты = единицы × контакты на единицу × сезонный коэффициент. Суммы, контакты и CPM ориентировочные.</li>
+<li><b>Вывод.</b> Стратегия объясняет выбор носителей, ожидаемые контакты и распределение бюджета.</li>
 </ol>
 
 <h3>Честность данных</h3>
@@ -254,211 +253,211 @@ const GROUPS={home:['Жилые дома','#0f7c8c'],street:['Улица','#f2a5
 const B=(o)=>Object.assign({cafe:1,delivery:1,beauty:1,clinic:1,fitness:1,kids:1,realty:1,hotel:1,tour:1,auto:1,retail:1,ecom:1,repair:1,finance:1,events:1,b2b:0,transfer:1,pharma:1,edu:1},o);
 
 /* ===================== БАЗА НОСИТЕЛЕЙ (по reklamavsochi.ru) =====================
- unit/unitCost — единица закупки в месяц; c — контакты на единицу в мес; lead — заявок на 1000 контактов;
+ unit/unitCost — единица закупки в месяц; c — контакты на единицу в мес;
  geo — инвентарь (единиц) по пулам районов; local — гиперлокальный; tour — туристический; prod — изготовление */
 const C4=['center','north','areda','mamayka'];
 const F=[
 {id:'mail',g:'home',name:'Листовки в почтовые ящики',url:'reklama/dostavka-po-pochtovym-yaschikam',unit:'1 000 листовок',unitCost:3000,min:4,
- c:1000,cs:'s',cNote:'1 000 ящиков = 1 000 квартир',lead:3.5,
+ c:1000,cs:'s',cNote:'1 000 ящиков = 1 000 квартир',
  cost:'1,5 ₽/шт доставка (сайт) + ~1,5 ₽ печать (оценка)',site:['60 000 ящиков в 12 микрорайонах','мин. тираж 4 000 шт. (1 микрорайон)','от 1,5 ₽ за штуку','фотоотчёт 10–30% тиража'],
  geo:{center:4,north:24,mamayka:6,areda:4,khostinsky:8,khosta:3,adler:10},local:1,
  aud:{locals:3,families:3,senior:3,youth:1,drivers:1,premium:1},biz:B({delivery:3,beauty:3,clinic:3,kids:3,repair:3,retail:3,cafe:2,fitness:2,auto:2,finance:2,pharma:3,edu:2}),goals:{leads:3,opening:3,event:2,awareness:1},prod:{layout:2000},
  why:'адресно в квартиры вашего района, по сайту там {inv}; ~1,5 ₽ за контакт с квартирой'},
 {id:'podezd',g:'home',name:'Стенды у подъездов',url:'reklama/reklama-na-podezdah-zhilyh-domov',unit:'участок ~50 стендов',unitCost:12200,min:1,
- c:120000,cs:'e',cNote:'50 подъездов × ~40 жильцов × 2 прохода в день',lead:0.05,printM:2240,
+ c:120000,cs:'e',cNote:'50 подъездов × ~40 жильцов × 2 прохода в день',printM:2240,
  cost:'3 050 ₽/неделя за участок (сайт) × 4; печать листовок +40% тиража (оценка ~2 240 ₽)',site:['2 070 стендов в Сочи и Адлере','от 3 050 ₽, мин. 1 неделя','подклейка еженедельно, фотоотчёт 100%'],
  geo:{center:3,north:14,mamayka:2,areda:4,khostinsky:3,khosta:4,adler:8},local:1,
  aud:{locals:3,families:3,senior:3,youth:1,drivers:1,premium:1},biz:B({delivery:3,beauty:3,clinic:3,kids:3,repair:3,retail:3,cafe:2,fitness:2,pharma:3,finance:2}),goals:{leads:3,opening:3,event:2,awareness:2},prod:{layout:1500},
  why:'жильцы видят объявление дважды в день у своего подъезда; в выбранных районах {inv}'},
 {id:'lift',g:'home',name:'Стенды в лифтах жилых домов',url:'reklama/reklama-v-liftah-zhilyh-domov',unit:'участок ~20 лифтов',unitCost:7500,min:1,
- c:72000,cs:'e',cNote:'20 лифтов × ~60 жильцов × 2 просмотра в день (сайт: «14 просмотров за 7 дней»)',lead:0.07,
+ c:72000,cs:'e',cNote:'20 лифтов × ~60 жильцов × 2 просмотра в день (сайт: «14 просмотров за 7 дней»)',
  cost:'от 7 500 ₽/мес за участок, печать включена (сайт)',site:['290 стендов: 167 лифтов в Центральном, 23 в Лазаревском, 100 в Адлере/Хосте/Кудепсте','14 просмотров за 7 дней','печать и фотоотчёт включены'],
  geo:{pool:{C:8,L:1,A:5},map:{center:'C',north:'C',areda:'C',mamayka:'C',lazarevskoe:'L',adler:'A',khosta:'A'}},local:1,
  aud:{locals:3,families:3,senior:2,youth:1,premium:1},biz:B({delivery:3,beauty:3,clinic:3,kids:3,repair:3,cafe:2,fitness:3,retail:2,finance:2,pharma:2,edu:2}),goals:{leads:3,opening:2,event:2,awareness:2},prod:{layout:1500},
  why:'14 касаний за неделю с одним жильцом (сайт), при этом печать уже в цене'},
 {id:'zhkv',g:'home',name:'Видеомониторы в лифтах ЖК',url:'reklama/reklama-v-zhilyh-kompleksah-sochi',unit:'ЖК-кластер (~12 мониторов)',unitCost:15000,min:1,
- c:70000,cs:'e',cNote:'~5 домов × 230 жильцов × 2 поездки в день',lead:0.06,
+ c:70000,cs:'e',cNote:'~5 домов × 230 жильцов × 2 поездки в день',
  cost:'от 7 500 ₽ за мин. 2 недели (сайт) → ~15 000 ₽/мес',site:['166 мониторов в 63 домах','ролик 10–15 сек каждые 3–5 мин','ролик изготавливается бесплатно'],
  geo:{pool:{C:11,A:2},map:{center:'C',north:'C',areda:'C',mamayka:'C',khostinsky:'C',adler:'A'}},local:1,
  aud:{locals:3,families:3,premium:2,youth:1},biz:B({cafe:3,delivery:3,finance:3,beauty:2,clinic:2,fitness:2,kids:2,events:2,retail:2,repair:2}),goals:{awareness:3,leads:2,opening:2,event:2},prod:{},
  why:'видео в ЖК повышенной комфортности, ролик делают бесплатно; сайт прямо рекомендует формат для ресторанов, химчисток и банков'},
 {id:'zhks',g:'home',name:'Стенды в крупных ЖК (Кислород, Министерские озёра и др.)',url:'reklama/reklama-v-zhilyh-kompleksah-na-stendah',unit:'1 ЖК',unitCost:8000,min:1,
- c:300000,cs:'e',cNote:'консервативно; сайт: Министерские озёра — 653 000 контактов/мес',lead:0.02,
+ c:300000,cs:'e',cNote:'консервативно; сайт: Министерские озёра — 653 000 контактов/мес',
  cost:'от 8 000 ₽/мес, печать и монтаж включены (сайт)',site:['6 ЖК, >20 000 домохозяйств','Министерские озёра: 653 000 контактов/мес, 66 стендов','ЖК Кислород: 3 600 квартир'],
  geo:{khostinsky:6},local:1,
  aud:{locals:3,families:3,premium:2},biz:B({delivery:3,beauty:3,clinic:3,kids:3,fitness:3,repair:3,cafe:2,retail:2,finance:2,pharma:2,edu:2}),goals:{leads:3,opening:2,awareness:2,event:2},prod:{layout:1500},
  why:'один ЖК — это город в городе: >20 000 домохозяйств среднего класса, а по Министерским озёрам сайт приводит 653 000 контактов в месяц'},
 {id:'city',g:'street',name:'Сити-форматы и пиллары на остановках',url:'reklama/reklama-na-ostanovochnyh-siti-formatah-v-sochi',unit:'1 сторона',unitCost:5000,min:1,max:40,
- c:120000,cs:'e',cNote:'~4 000 проходов/проездов в день',lead:0.012,printOnce:3500,
+ c:120000,cs:'e',cNote:'~4 000 проходов/проездов в день',printOnce:3500,
  cost:'от 5 000 ₽/сторона/мес (сайт); печать+монтаж ~3 500 ₽ разово (оценка)',site:['600+ сити-форматов и 100+ пилларов','мин. 1 сторона, 1 месяц','видео-сити — от 1 недели, без печати'],
  aud:{locals:2,tourists:2,youth:2,families:1,drivers:2},biz:B({retail:2,cafe:2,beauty:2,fitness:2,events:3,realty:2,b2b:0}),goals:{awareness:3,opening:2,event:2,leads:1},prod:{layout:2000},
  why:'самая доступная наружка: сторона от 5 000 ₽, а инвентарь 600+ конструкций позволяет окружить точку'},
 {id:'vscreen',g:'street',name:'Уличные видеоэкраны и медиафасады',url:'reklama/videoekrany-i-mediafasady',unit:'1 экран',unitCost:8000,min:1,
- c:130000,cs:'e',cNote:'288 выходов/сутки (сайт) × ~15 зрителей на выход',lead:0.012,
+ c:130000,cs:'e',cNote:'288 выходов/сутки (сайт) × ~15 зрителей на выход',
  cost:'от 8 000 ₽/мес (сайт)',site:['~200 экранов: Сочи 159, Адлер 47, Поляна 16, Сириус 8','от 144 до 1 020 выходов в сутки','ролик 5–30 сек'],
  geo:{pool:{S:20,A:15,P:8,R:5,L:2},map:{center:'S',north:'S',areda:'S',mamayka:'S',khostinsky:'S',khosta:'S',adler:'A',polyana:'P',sirius:'R',lazarevskoe:'L'}},
  aud:{locals:2,tourists:2,drivers:3,youth:2,premium:1},biz:B({events:3,realty:3,auto:3,retail:2,cafe:2,fitness:2,b2b:1}),goals:{awareness:3,event:3,opening:2,leads:1},prod:{video:6000},
  why:'сотни выходов в сутки на главных магистралях: Курортный, Горького, Навагинская, ул. Мира в Адлере'},
 {id:'afisha',g:'street',name:'Афишные стенды',url:'reklama/reklama-na-afishnyh-stendah',unit:'1 афиша',unitCost:13500,min:5,
- c:75000,cs:'e',cNote:'~2 500 пешеходов в день',lead:0.02,printOnce:900,
+ c:75000,cs:'e',cNote:'~2 500 пешеходов в день',printOnce:900,
  cost:'450 ₽/афиша/день в Сочи (сайт) × 30; для событий — 10 дней',site:['191 стенд: 162 в Сочи, 29 в Лазаревском','от 450 ₽ за афишу в сутки','мин. 5 афиш на 10 дней'],
  aud:{locals:3,tourists:2,families:2,youth:2,senior:2},biz:B({events:3,kids:2,tour:2,edu:2,cafe:1,b2b:0}),goals:{event:3,awareness:2,opening:1,leads:1},prod:{layout:2000},
  why:'классика анонсов: 191 стенд в пешеходных зонах, оплата посуточно от 450 ₽'},
-{id:'radio',g:'media',name:'Радио',url:'reklama/reklama-na-radio',unit:'станция / мес',list:'radio',lead:0.008,
+{id:'radio',g:'media',name:'Радио',url:'reklama/reklama-na-radio',unit:'станция / мес',list:'radio',
  cost:'цена — в медиаплане по запросу; модель: ~22 дня × 6 выходов × 20 сек (оценка)',site:['охваты по Mediascope 2024: Европа плюс 58 800/день, Авторадио 47 900, Макс FM 45 000','аудиоролик от 3 500 ₽'],
  cs:'s',cNote:'суточный охват станции (сайт, Mediascope) × 22 дня × 50% слышат ролик',
  aud:{drivers:3,locals:3,senior:2,youth:2,business:1},biz:B({auto:3,realty:3,events:2,retail:2,repair:2,finance:2,clinic:2,b2b:1}),goals:{awareness:3,event:2,opening:2,leads:1},prod:{audio:3500},
  why:'точные охваты по Mediascope; лучший охват автомобилистов, ведь ~70% трафика в Сочи — на машинах'},
 {id:'tv',g:'media',name:'Кабельное ТВ (Сочи24, Sochi Live)',url:'reklama/reklama-na-televidenii-v-sochi',unit:'месяц размещения',unitCost:60000,min:1,max:1,
- c:300000,cs:'e',cNote:'нет данных на сайте',lead:0.006,
+ c:300000,cs:'e',cNote:'нет данных на сайте',
  cost:'цена по запросу; модель ~60 000 ₽/мес (оценка); ролик от 8 000 ₽ (сайт)',site:['13 каналов, включая Первый, Россия 1, ТНТ, СТС','ролик от 8 000 ₽, заставка от 12 000 ₽'],
  aud:{senior:3,locals:3,families:2},biz:B({realty:2,clinic:2,repair:2,events:2,retail:2,b2b:0}),goals:{awareness:3,event:1,leads:1,opening:1},prod:{video:8000},
  why:'доверие старшей аудитории к местному ТВ'},
 {id:'mag',g:'media',name:'Журналы (Дорогое удовольствие, Scapp, Собака)',url:'reklama/reklama-v-zhurnalah-i-gazetah-sochi',unit:'1 выход (1/2 полосы)',unitCost:10000,min:1,max:3,
- c:10000,cs:'e',cNote:'тираж ~5 000 × 2 читателя',lead:0.15,
+ c:10000,cs:'e',cNote:'тираж ~5 000 × 2 читателя',
  cost:'от 10 000 ₽ (сайт); макет от 1 000 ₽',site:['3 издания премиум-сегмента','от 10 000 ₽ за размещение'],
  aud:{premium:3,business:2,tourists:1},biz:B({realty:3,clinic:3,beauty:3,cafe:2,hotel:2,auto:2,finance:2,fitness:2,b2b:1}),goals:{awareness:3,leads:1,opening:1,event:1},prod:{layout:1000},
  why:'премиальный контекст для чека выше среднего'},
 {id:'indoor',g:'indoor',name:'Indoor TV: 195 мониторов в 32 заведениях',url:'reklama/reklama-v-seti-indoor-tv---videoekrany-vnutri-pomeschenii',unit:'пакет 5 экранов',unitCost:12500,min:1,max:8,
- c:27000,cs:'e',cNote:'~3 заведения × 300 посетителей в день',lead:0.1,
+ c:27000,cs:'e',cNote:'~3 заведения × 300 посетителей в день',
  cost:'цена по запросу; модель ~2 500 ₽/экран (оценка); ролик от 5 000 ₽ (сайт)',site:['195 мониторов в 32 местах: отели, фитнес, строймаркеты, медцентры, детские центры','отдельно от 5 экранов, от 2 недель','показ каждые 15 мин'],
  aud:{locals:2,tourists:2,families:2,premium:2},biz:B({clinic:3,kids:3,beauty:2,fitness:2,repair:2,finance:2,realty:2,edu:2}),goals:{awareness:2,leads:2,opening:1,event:1},prod:{video:5000},
  why:'посетитель ждёт в заведении и смотрит экран без отвлечений'},
 {id:'restlg',g:'indoor',name:'Рестораны London Group (35 экранов)',url:'reklama/reklama-v-restoranah-i-kafe',unit:'пакет 8 ресторанов',unitCost:50000,min:1,max:1,tour:1,
- c:170000,cs:'s',cNote:'сайт: >170 000 гостей с высоким доходом в месяц',lead:0.03,
+ c:170000,cs:'s',cNote:'сайт: >170 000 гостей с высоким доходом в месяц',
  cost:'от 10 000 ₽ (сайт); пакет London Group ~50 000 ₽ (оценка)',site:['35 экранов в 8 ресторанах: Rezzo, Мясной синдикат, Хмели&Сунели, SEABUS и др.','>170 000 гостей в месяц'],
  aud:{premium:3,tourists:3,locals:2},biz:B({cafe:0,delivery:0,realty:3,tour:3,auto:3,hotel:2,clinic:2,beauty:2,transfer:2,events:2,finance:2}),goals:{awareness:3,event:2,leads:1,opening:1},prod:{video:5000},
  why:'170 000 состоятельных гостей в месяц в Сочи, Сириусе и на Поляне'},
 {id:'restcafe',g:'indoor',name:'Мониторы в кафе (Nippon House, Мой кофе и др.)',url:'reklama/reklama-v-restoranah-i-kafe',unit:'пакет 5 заведений',unitCost:10000,min:1,
- c:31000,cs:'s',cNote:'сайт: >100 000 гостей/мес на 16 заведений → 5/16',lead:0.08,
+ c:31000,cs:'s',cNote:'сайт: >100 000 гостей/мес на 16 заведений → 5/16',
  cost:'от 10 000 ₽, от 5 локаций (сайт)',site:['38 мониторов в 16 заведениях','ролик до 30 сек, 4 раза в час','старт 1 или 15 числа'],
  geo:{pool:{C:2,A:1,P:1},map:{center:'C',north:'C',areda:'C',mamayka:'C',khostinsky:'C',adler:'A',polyana:'P'}},
  aud:{locals:3,youth:2,tourists:2,families:2},biz:B({cafe:0,delivery:0,beauty:3,fitness:3,events:3,kids:2,retail:2,clinic:2,tour:2,transfer:2,edu:2}),goals:{awareness:2,leads:2,event:2,opening:1},prod:{video:5000},
  why:'по данным сайта, 100 000+ гостей в месяц, ролик 4 раза в час, пока гость ждёт заказ'},
 {id:'pharm',g:'indoor',name:'Видеомониторы на кассах аптек',url:'reklama/reklama-v-aptekah',unit:'1 аптека',unitCost:3000,min:3,
- c:9000,cs:'e',cNote:'~300 покупателей в день у кассы',lead:0.12,
+ c:9000,cs:'e',cNote:'~300 покупателей в день у кассы',
  cost:'3 000 ₽ за аптеку в месяц, мин. 3 аптеки (сайт)',site:['26 аптек: Центр 10, Лазаревский 7, Хостинский 6, Адлер 3, Дагомыс 1','ролик 15 сек каждые 5 мин','таргет по геолокации и среднему чеку'],
  geo:{pool:{C:10,H:6,A:3,L:7,D:1},map:{center:'C',north:'C',areda:'C',khostinsky:'H',khosta:'H',adler:'A',lazarevskoe:'L',mamayka:'D'}},local:1,
  aud:{senior:3,families:3,locals:3},biz:B({clinic:3,pharma:3,beauty:2,finance:2,kids:2,fitness:1}),goals:{leads:3,awareness:2,opening:2,event:1},prod:{video:3000},
  why:'на сайте это прямо формат для клиник, стоматологий и косметологии; 3 000 ₽ за точку, аудитория реже сидит в интернете'},
 {id:'cdek',g:'indoor',name:'Видеомониторы в ПВЗ СДЭК',url:'reklama/reklama-v-pvz-cdek-i-wildberries',unit:'пакет 5 мониторов',unitCost:20000,min:1,
- c:30000,cs:'s',cNote:'сайт: ~200 показов на монитор в день',lead:0.18,
+ c:30000,cs:'s',cNote:'сайт: ~200 показов на монитор в день',
  cost:'от 20 000 ₽/мес за 5 экранов (сайт)',site:['68 мониторов: Сочи 32, Адлер 16, Лазаревский 11, Сириус 4, Хоста 3, Поляна 2','ожидание в ПВЗ 3–5 мин, другой рекламы нет','ролик 10–15 сек каждые 3 мин'],
  geo:{pool:{S:6,A:3,L:2,R:1},map:{center:'S',north:'S',areda:'S',mamayka:'S',khostinsky:'S',adler:'A',khosta:'A',lazarevskoe:'L',sirius:'R',polyana:'R'}},local:1,
  aud:{youth:3,families:3,locals:3,premium:1},biz:B({ecom:3,beauty:3,delivery:3,fitness:2,kids:2,retail:2,cafe:2,clinic:2,repair:2,finance:2,edu:2}),goals:{leads:3,awareness:2,opening:2,event:1},prod:{video:5000},
  why:'3–5 минут ожидания без конкурирующей рекламы (сайт), а люди живут в шаговой доступности от ПВЗ'},
 {id:'wb',g:'indoor',name:'Видеомониторы в ПВЗ Wildberries (пакет 48)',url:'reklama/reklama-v-pvz-cdek-i-wildberries',unit:'пакет 48 мониторов',unitCost:90000,min:1,max:1,
- c:518000,cs:'s',cNote:'сайт: 330–420 выходов/монитор/день; берём 360 × 48 × 30',lead:0.02,
+ c:518000,cs:'s',cNote:'сайт: 330–420 выходов/монитор/день; берём 360 × 48 × 30',
  cost:'только пакет 48 мониторов; цена по запросу, модель ~90 000 ₽ (оценка)',site:['48 мониторов: Сочи 26, Адлер 9, Лазаревский 7, Сириус 5','ролик 10 сек каждые 120 сек'],
  aud:{youth:2,families:3,locals:3},biz:B({ecom:3,retail:2,delivery:2,beauty:2,kids:2}),goals:{awareness:3,leads:2,opening:1,event:1},prod:{video:5000},
  why:'полмиллиона показов в месяц покупателям маркетплейса по всему городу'},
 {id:'fit',g:'indoor',name:'Фитнес-клубы, клиники, барбершопы',url:'reklama/reklama-v-fitnes-klubah-i-salonah-krasoty',unit:'1 точка',unitCost:5000,min:1,
- c:7500,cs:'e',cNote:'~250 визитов в день',lead:0.25,
+ c:7500,cs:'e',cNote:'~250 визитов в день',
  cost:'от 5 000 ₽/мес за точку (сайт)',site:['14 мониторов в 12 точках + World Class, «Сильные Люди»','ролик до 30 сек, 4 раза в час','таргет по полу, возрасту, доходу'],
  geo:{pool:{C:8,A:4},map:{center:'C',north:'C',areda:'C',mamayka:'C',khostinsky:'C',adler:'A'}},
  aud:{premium:3,locals:3,youth:2,families:2},biz:B({fitness:0,clinic:3,realty:2,finance:2,kids:2,cafe:2,retail:2,auto:2,delivery:2,beauty:1,edu:2}),goals:{leads:2,awareness:2,opening:1,event:1},prod:{video:5000},
  why:'платёжеспособная активная аудитория с точным таргетом по полу и возрасту'},
 {id:'hotel',g:'resort',name:'Видеостойки в 8 отелях Сочи',url:'reklama/reklama-v-otelyah-i-gostinitsah-sochi',unit:'пакет 8 отелей',unitCost:52000,min:1,max:1,tour:1,
- c:72000,cs:'e',cNote:'~300 гостей в день у стойки',lead:0.12,
+ c:72000,cs:'e',cNote:'~300 гостей в день у стойки',
  cost:'52 000 ₽/мес за пакет 8 отелей (сайт)',site:['пакет 8 отелей — 52 000 ₽/мес','ролик 10–15 сек каждые 2–3 мин','турпоток Сочи до 7–8 млн в год'],
  aud:{tourists:3,premium:3,business:1},biz:B({tour:3,cafe:3,transfer:3,events:3,beauty:2,clinic:2,realty:2,retail:2,hotel:0}),goals:{leads:2,awareness:2,event:3,opening:1},prod:{video:5000},
  why:'гость отеля ищет, где поесть, куда съездить и на чём, и видит ролик каждые 2–3 минуты'},
 {id:'promo7',g:'resort',name:'Акция: 7 видеостоек в отелях и БЦ',url:'',unit:'пакет',unitCost:25000,min:1,max:1,tour:1,
- c:52500,cs:'e',cNote:'~250 человек в день у стойки',lead:0.12,
+ c:52500,cs:'e',cNote:'~250 человек в день у стойки',
  cost:'25 000 ₽/мес вместо 70 000 ₽ (акция на главной сайта)',site:['скидка 70%: 25 000 вместо 70 000 ₽','отели + бизнес-центры'],
  aud:{tourists:3,business:3,premium:3},biz:B({tour:3,cafe:3,transfer:3,realty:3,b2b:2,finance:2,clinic:2,beauty:2,events:2,hotel:0}),goals:{leads:2,awareness:2,event:2,opening:1},prod:{video:5000},
  why:'действующая акция −70%: туристы и деловая аудитория по цене одного носителя'},
 {id:'polyana',g:'resort',name:'Красная Поляна: курортные носители',url:'reklama/reklama-v-krasnoi-polyane',unit:'пакет',unitCost:15000,min:1,max:4,tour:1,season:'winter',
- c:66000,cs:'e',cNote:'от >1 млн туристов в год (сайт)',lead:0.04,
+ c:66000,cs:'e',cNote:'от >1 млн туристов в год (сайт)',
  cost:'от 15 000 ₽/мес (сайт)',site:['>1 млн туристов в год, круглый год','Роза Хутор: 17 экранов над кассами, 1 700 номеров с ТВ','Горки Город: 2 800 номеров, 74 лифта'],
  geo:{polyana:4},touristOk:1,
  aud:{tourists:3,premium:3,youth:2},biz:B({tour:3,cafe:3,transfer:3,realty:3,retail:2,events:2,hotel:1}),goals:{awareness:3,leads:2,event:2,opening:1},prod:{video:5000},
  why:'1 млн+ туристов в год с высоким чеком: подъёмники, кассы, номера отелей'},
 {id:'sirius',g:'resort',name:'Сириус и Олимпийский парк',url:'reklama/reklama-v-olimpiiskom-parke-imeretinskoi-nizmennosti',unit:'носитель',unitCost:10000,min:1,max:4,tour:1,
- c:60000,cs:'e',cNote:'от >1 млн туристов в год (сайт)',lead:0.04,printOnce:4000,
+ c:60000,cs:'e',cNote:'от >1 млн туристов в год (сайт)',printOnce:4000,
  cost:'от 10 000 ₽/мес (сайт); монтаж отдельно (~4 000 ₽, оценка)',site:['>1 млн туристов в год','сити-форматы на Каспийской, Триумфальной, медиафасад'],
  geo:{sirius:4},touristOk:1,
  aud:{tourists:3,families:3,locals:2},biz:B({tour:3,cafe:3,kids:3,events:3,transfer:2,realty:2,retail:2}),goals:{awareness:3,leads:2,event:2,opening:1},prod:{layout:2000},
  why:'семейные туристы Олимпийского парка и Сочи Парка'},
 {id:'beach',g:'resort',name:'Пляжные кабинки',url:'reklama/reklama-na-plyazhah-i-naberezhnyh-v-sochi',unit:'1 сторона кабинки',unitCost:15000,min:1,max:10,tour:1,season:'summer',
- c:45000,cs:'e',cNote:'~1 500 отдыхающих в день в сезон',lead:0.05,printOnce:3000,
+ c:45000,cs:'e',cNote:'~1 500 отдыхающих в день в сезон',printOnce:3000,
  cost:'от 15 000 ₽/мес (сайт); печать/монтаж ~3 000 ₽ (оценка)',site:['281 кабинка на 36 пляжах','Чайка (Адлер) 31, Маяк 27, Приморский 18','сезон май–сентябрь'],
  aud:{tourists:3,families:3,youth:3},biz:B({tour:3,cafe:3,transfer:3,events:3,retail:2,beauty:2,delivery:2,hotel:1}),goals:{awareness:3,leads:2,event:2,opening:1},prod:{layout:2000},
  why:'8 млн туристов в год (сайт), а пляж — место, где они каждый день'},
 {id:'laz',g:'resort',name:'Лазаревское: пакет носителей',url:'reklama/reklama-v-lazarevskom',unit:'пакет',unitCost:15000,min:1,max:3,
- c:40000,cs:'e',cNote:'оценка',lead:0.05,season:'summer',
+ c:40000,cs:'e',cNote:'оценка',season:'summer',
  cost:'от 15 000 ₽/мес (сайт)',site:['29 афишных стендов, 11 мониторов СДЭК, 3 радиостанции','летом туристы, круглый год местные'],
  geo:{lazarevskoe:3},local:1,
  aud:{tourists:3,locals:2,families:2},biz:B({tour:3,cafe:3,beauty:2,clinic:2,retail:2,events:2}),goals:{awareness:2,leads:2,event:2,opening:2},prod:{layout:2000},
  why:'единственный пакет, сфокусированный на Лазаревском районе'},
 {id:'promo',g:'promo',name:'Промоутеры с листовками',url:'reklama/promo-aktsii-v-sochi-',unit:'20 чел.-часов + 3 000 листовок',unitCost:11500,min:1,max:8,
- c:3000,cs:'e',cNote:'~150 листовок в руки за час',lead:5,
+ c:3000,cs:'e',cNote:'~150 листовок в руки за час',
  cost:'350 ₽/час (сайт) × 20 ч = 7 000 ₽ + печать ~4 500 ₽ (оценка)',site:['от 350 ₽/час, супервайзер от 500 ₽','мин. 20 человеко-часов','центр, Навагинская, набережные, ТЦ'],
  geo:{pool:{C:4,A:2,H:2,L:1,P:1},map:{center:'C',north:'C',areda:'C',mamayka:'C',adler:'A',khostinsky:'H',khosta:'H',sirius:'A',lazarevskoe:'L',polyana:'P'}},local:1,
  aud:{locals:3,tourists:3,youth:3,families:2},biz:B({cafe:3,beauty:3,fitness:3,retail:3,events:3,tour:3,delivery:3,kids:2,clinic:2,edu:2,b2b:0}),goals:{opening:3,event:3,leads:3,awareness:1},prod:{layout:2000},
  why:'живой контакт у самой точки: листовка с оффером из рук в руки'},
 {id:'padel',g:'indoor',name:'Падел-центры (Frunze Sport, Звёздный)',url:'reklama/reklama-v-padel-tsentrah',unit:'видеостойка на ресепшн',unitCost:10000,min:1,max:2,
- c:3600,cs:'e',cNote:'~120 игроков в день',lead:0.5,
+ c:3600,cs:'e',cNote:'~120 игроков в день',
  cost:'10 000 ₽/мес (сайт)',site:['видеостойка 10 000 ₽/мес','сетка 20 000 ₽, баннер у корта 20 000 ₽','аудитория с высоким доходом'],
  geo:{center:2},
  aud:{premium:3,youth:2,business:2},biz:B({realty:3,auto:3,clinic:3,finance:3,beauty:2,b2b:2,fitness:0}),goals:{awareness:2,leads:2},prod:{video:5000},
  why:'нишевая премиум-аудитория с прозрачным прайсом'},
 {id:'bc',g:'indoor',name:'Бизнес-центры (Олимпийский, Александрия и др.)',url:'reklama/reklama-v-biznes-tsentrah-i-ofisnyh-zdaniyah',unit:'стенд в лифте БЦ',unitCost:3000,min:1,max:12,
- c:22000,cs:'e',cNote:'~500 сотрудников × 2 поездки × 22 дня',lead:0.07,
+ c:22000,cs:'e',cNote:'~500 сотрудников × 2 поездки × 22 дня',
  cost:'от 3 000 ₽/мес (сайт)',site:['6 БЦ с видеостойками, 3 — с лифтовыми рамками','контакт минимум 2 раза в день по 1–2 мин'],
  geo:{center:10,khostinsky:2},
  aud:{business:3,premium:2},biz:B({b2b:3,finance:3,cafe:3,delivery:3,fitness:2,beauty:2,clinic:2,realty:2,edu:3}),goals:{leads:3,awareness:2,opening:2,event:1},prod:{layout:1500},
  why:'деловая аудитория с доходом выше среднего, 2 контакта в день'},
 {id:'mfc',g:'indoor',name:'Видеостойки в МФЦ «Мои документы»',url:'reklama/reklama-v-mfts',unit:'1 видеостойка',unitCost:9000,min:1,
- c:10000,cs:'e',cNote:'~450 посетителей в день × 24 рабочих дня',lead:0.22,
+ c:10000,cs:'e',cNote:'~450 посетителей в день × 24 рабочих дня',
  cost:'от 9 000 ₽/мес (сайт); ролик от 3 000 ₽',site:['10 стоек в 5 офисах: Юных Ленинцев, Мандарин (Адлер), Лазаревское, Ясногорская, Дагомыс','ролик каждые 3 мин','аудитория: сделки с недвижимостью, детсады, прописка'],
  geo:{center:2,adler:2,lazarevskoe:2,khostinsky:2,mamayka:2},local:1,
  aud:{business:3,families:3,locals:3,premium:2,senior:2},biz:B({realty:3,finance:3,kids:3,repair:3,edu:3,b2b:2,clinic:2,auto:2}),goals:{leads:3,awareness:2,opening:1,event:1},prod:{video:3000},
  why:'по сайту, в МФЦ оформляют сделки с недвижимостью и детсады, а пока ждут очереди, смотрят ролик'},
 {id:'ukaz',g:'street',name:'Навигационные указатели',url:'reklama/reklama-na-ukazatelyah',unit:'1 сторона',unitCost:12000,min:1,max:4,minMonths:6,
- c:150000,cs:'e',cNote:'~5 000 машин в день',lead:0.03,printOnce:6000,
+ c:150000,cs:'e',cNote:'~5 000 машин в день',printOnce:6000,
  cost:'от 12 000 ₽/сторона/мес, мин. 6 мес (сайт); изготовление ~6 000 ₽ (оценка)',site:['мин. 6 мес (новые — 1 год)','любой адрес по ГОСТу'],
  local:1,
  aud:{drivers:3,locals:3,tourists:2},biz:B({auto:3,clinic:3,retail:3,repair:3,hotel:2,cafe:2,beauty:2,fitness:2,kids:2,b2b:0}),goals:{opening:3,awareness:3,leads:2},prod:{layout:2000},
  why:'ведёт клиента прямо к двери, работает 24/7'},
 {id:'azs',g:'transit',name:'Мониторы на кассах АЗС (Роснефть, Газпромнефть)',url:'reklama/reklama-na-azs',unit:'пакет 3 АЗС',unitCost:15000,min:1,max:5,
- c:40500,cs:'e',cNote:'~450 чеков в день на АЗС',lead:0.07,
+ c:40500,cs:'e',cNote:'~450 чеков в день на АЗС',
  cost:'от 15 000 ₽/мес, мин. 3 АЗС (сайт)',site:['15 АЗС в Сочи','до 480 показов в сутки, 24/7','мужская аудитория с доходом выше среднего'],
  aud:{drivers:3,premium:2,locals:2},biz:B({auto:3,transfer:3,realty:2,finance:2,repair:2,tour:1}),goals:{awareness:2,leads:2,opening:1},prod:{video:3000},
  why:'автомобилисты с доходом выше среднего, 480 показов в сутки (сайт)'},
 {id:'busback',g:'transit',name:'Видеоэкраны на автобусах',url:'reklama/reklama-na-avtobusah',unit:'15 автобусов',unitCost:49995,min:1,max:1,
- c:6750000,cs:'s',cNote:'сайт: 15–30 тыс. контактов на автобус в сутки (берём нижнюю границу)',lead:0.0015,
+ c:6750000,cs:'s',cNote:'сайт: 15–30 тыс. контактов на автобус в сутки (берём нижнюю границу)',
  cost:'от 49 995 ₽/мес за 15 автобусов (сайт)',site:['маршруты 88, 115, 517, 560, 57','экран 113 см, ролик 30 сек','70% аудитории — автомобилисты'],
  aud:{drivers:3,locals:3,tourists:2},biz:B({events:3,auto:2,realty:2,retail:2,cafe:2,fitness:2,ecom:2,finance:2}),goals:{awareness:3,event:2,leads:1,opening:1},prod:{video:5000},
  why:'по данным сайта, самый дешёвый контакт: от 15 000 контактов на автобус в сутки'},
 {id:'lastochka',g:'transit',name:'Стикеры в «Ласточках»',url:'reklama/reklama-v-elektrichkah-lastochka-v-sochi',unit:'3 состава (~30 стикеров)',unitCost:18750,min:1,max:4,tour:1,
- c:101800,cs:'s',cNote:'сайт: 1 154 242 пассажира/мес на 34 состава → 3/34',lead:0.035,printOnce:9000,
+ c:101800,cs:'s',cNote:'сайт: 1 154 242 пассажира/мес на 34 состава → 3/34',printOnce:9000,
  cost:'от 625 ₽/стикер, мин. 3 состава (сайт); печать с запасом 30% (оценка)',site:['1 154 242 пассажира в месяц в Сочинском регионе','34 состава по 5 вагонов','Роза Хутор — Аэропорт, Лазаревская — Аэропорт'],
  aud:{tourists:3,locals:3,youth:2},biz:B({tour:3,events:3,hotel:2,transfer:2,realty:2,cafe:2,retail:2,ecom:2}),goals:{awareness:3,event:2,leads:1,opening:1},prod:{layout:2000},
  why:'1,15 млн пассажиров в месяц (сайт) едут 30–90 минут и читают стикеры'},
 {id:'vokzal',g:'transit',name:'Вокзалы и станции',url:'reklama/reklama-na-vokzalah',unit:'1 носитель',unitCost:8000,min:1,max:6,tour:1,
- c:40000,cs:'e',cNote:'сайт: >1 млн пассажиров/мес в сезон по 8 вокзалам → ~4% на носитель',lead:0.03,
+ c:40000,cs:'e',cNote:'сайт: >1 млн пассажиров/мес в сезон по 8 вокзалам → ~4% на носитель',
  cost:'от 8 000 ₽/мес (сайт)',site:['8 вокзалов: Сочи, Адлер, Аэропорт, Олимпийский парк, Роза Хутор, Лазаревское…','>1 млн пассажиров в месяц в сезон'],
  aud:{tourists:3,locals:2},biz:B({tour:3,transfer:3,hotel:3,cafe:2,events:2}),goals:{awareness:3,leads:2,event:2,opening:1},prod:{layout:2000},
  why:'первая точка контакта туриста с городом'},
 {id:'airport',g:'transit',name:'Аэропорт: брендирование стоек',url:'reklama/reklama-v-aeroportu',unit:'стойка + листовки',unitCost:50000,min:1,max:2,tour:1,
- c:60000,cs:'e',cNote:'оценка; сайт: тираж листовок 500–3 000 шт/мес',lead:0.12,
+ c:60000,cs:'e',cNote:'оценка; сайт: тираж листовок 500–3 000 шт/мес',
  cost:'от 50 000 ₽/мес (сайт)',site:['12 стоек: бизнес-залы, VIP, зона прилёта','листовки 500–3 000 шт/мес'],
  aud:{tourists:3,premium:3,business:2},biz:B({hotel:3,transfer:3,tour:3,realty:3,clinic:2,events:2}),goals:{leads:2,awareness:2,event:1},prod:{layout:2000},
  why:'турист с чемоданом в момент выбора трансфера и отеля'},
 {id:'airscr',g:'transit',name:'Аэропорт: видеоэкраны',url:'reklama/reklama-v-aeroportu',unit:'сеть экранов',unitCost:750000,min:1,max:1,tour:1,
- c:3000000,cs:'e',cNote:'оценка; 576 выходов в сутки (сайт)',lead:0.004,
+ c:3000000,cs:'e',cNote:'оценка; 576 выходов в сутки (сайт)',
  cost:'от 750 000 ₽/мес (сайт)',site:['до 19 видеостен в сети','576 выходов в сутки'],
  aud:{tourists:3,premium:3,business:3},biz:B({realty:3,hotel:2,auto:2,finance:2,tour:2}),goals:{awareness:3},prod:{video:15000},
  why:'максимальный имиджевый охват туристов'},
 {id:'moremall',g:'indoor',name:'Видеоэкраны ТРЦ МореМолл',url:'reklama/reklama-v-trts-moremoll',unit:'1 экран',unitCost:13800,min:1,max:9,
- c:82000,cs:'s',cNote:'сайт: 33 000 посетителей в будни, 38 000 в выходные; доля на экран ~8% (оценка)',lead:0.03,
+ c:82000,cs:'s',cNote:'сайт: 33 000 посетителей в будни, 38 000 в выходные; доля на экран ~8% (оценка)',
  cost:'от 6 900 ₽ за 2 недели (сайт) → 13 800 ₽/мес',site:['33–38 тыс. посетителей в день','9 больших экранов, 144 выхода в день','350 магазинов, реклама конкурентов арендаторов запрещена'],
  geo:{north:9,center:9},
  aud:{locals:3,families:3,premium:2,youth:2,tourists:1},biz:B({retail:0,cafe:0,realty:3,auto:3,fitness:3,events:3,finance:3,repair:3,hotel:2,tour:2,kids:2,clinic:2,b2b:1}),goals:{awareness:3,event:2,leads:2,opening:1},prod:{video:5000},
  why:'крупнейший ТРЦ города, по данным сайта до 38 000 посетителей в день; сайт рекомендует экраны застройщикам, автобрендам и фитнесу'},
 {id:'cinema',g:'indoor',name:'Ролики перед сеансом в кинотеатрах',url:'reklama/reklama-v-kinoteatrah-teatrah-boulingah',unit:'1 неделя в 1 кинотеатре',unitCost:15000,min:1,max:12,
- c:8400,cs:'s',cNote:'сайт: 35–37 тыс. зрителей в месяц на кинотеатр',lead:0.08,
+ c:8400,cs:'s',cNote:'сайт: 35–37 тыс. зрителей в месяц на кинотеатр',
  cost:'от 15 000 ₽, мин. 1 неделя (сайт)',site:['Синема Парк МореМолл, Монитор Олимп, Монитор Сити Плаза','16–34 года — 62% зрителей','37 000 зрителей в месяц в Олимпе'],
  aud:{youth:3,families:2,locals:2},biz:B({events:3,cafe:2,kids:2,fitness:2,beauty:2,ecom:2,edu:2}),goals:{awareness:3,event:3,leads:1},prod:{video:8000},
  why:'62% зрителей — 16–34 года (сайт), большой экран и максимальное внимание'}
@@ -594,7 +593,7 @@ function evaluate(f){
   if(max<min){r.excl='в выбранных районах меньше минимального объёма';return r}
   const minCost=f.list?unitCost:unitCost*min+(f.printM||0)*min;
   const k=seasonK(f);
-  const cpl=unitCost/(c*k*f.lead/1000), cpm=unitCost/(c*k)*1000;
+  const cpm=unitCost/(c*k)*1000;
   // скоринг
   const aud=P.aud.length?P.aud.reduce((a,x)=>a+(f.aud[x]||0),0)/P.aud.length:1.5;
   const goal=P.goal.length?Math.max(...P.goal.map(g=>f.goals[g]??1)):Math.max(...Object.values(f.goals))*0.6;
@@ -602,13 +601,10 @@ function evaluate(f){
   if(f.tour&&hasS('summer')&&f.season!=='winter')season+=0.5;
   let dist=0;if(f.local&&!r.viaTour)dist=P.mode.includes('point')?(inv!==null?2:1):P.mode.includes('city')?0.5:-1;if(f.geo&&!f.local&&inv&&!r.viaTour&&!P.dist.includes('all'))dist+=0.5;
   if(P.mode.length===1&&P.mode[0]==='online'&&f.id==='ukaz')dist-=2;
-  const effM=Math.max(-2,Math.min(2,1.5-Math.log10(cpm/100))), effL=Math.max(-2,Math.min(2,2-1.5*Math.log10(cpl/1000)));
-  const G=x=>P.goal.includes(x), wantL=G('leads')||G('opening'), wantM=G('awareness')||G('event');
-  let eff=wantL&&!wantM?effL:wantM&&!wantL?effM:(effM+effL)/2;
-  if(G('leads'))eff*=1.5;
+  const eff=Math.max(-2,Math.min(2,1.5-Math.log10(cpm/100)));
   const prio={street:3,transit:1.5,resort:1,home:0.5,indoor:0.5,promo:0,media:-1}[f.g]||0; // приоритет наружной рекламы
   r.score=3*bf+2*aud+2*goal+season+dist+eff+prio;
-  Object.assign(r,{inv,items,unitCost,c,min,max,minCost,k,cpl,cpm,bf,audS:aud});
+  Object.assign(r,{inv,items,unitCost,c,min,max,minCost,k,bf,audS:aud});
   if(minCost>P.budget){r.excl='минимальный пакет '+rub(minCost)+'/мес больше бюджета';r.over=1}
   return r;
 }
@@ -622,7 +618,7 @@ function nextCost(p){
 }
 function resolveP(){
   P={biz:S.biz,dist:S.dist.length?S.dist:['all'],mode:S.mode.length?S.mode:['city'],aud:S.aud,goal:S.goal,season:S.season.length?S.season:['off'],
-     budget:S.budget||70000,dur:S.dur||3,check:null,conv:null,crea:'none',econ:false,skipped:[]};
+     budget:S.budget||70000,dur:S.dur||3,crea:'none',skipped:[]};
   if(!S.biz.length)P.skipped.push('ниша');if(!S.dist.length)P.skipped.push('район → весь Большой Сочи');if(!S.mode.length)P.skipped.push('формат работы');
   if(!S.aud.length)P.skipped.push('аудитория');if(!S.goal.length)P.skipped.push('цель');if(!S.season.length)P.skipped.push('сезон → межсезонье');
   if(!S.budget)P.skipped.push('бюджет → стартовый 70 000 ₽');if(!S.dur)P.skipped.push('срок → 3 мес');
@@ -679,63 +675,56 @@ function prodCost(f,units){
 }
 function render(plan,evals,rem){
   const box=$('#result');
+  const estimate='<p class="note"><b>Все цифры медиаплана ориентировочные.</b> Стоимость, контакты, доли бюджета и доступность размещений зависят от дат и площадок. Итоговую смету и наличие подтверждает менеджер.</p>';
   if(!plan.length){
-    box.innerHTML=resbar()+'<div class="card empty"><div class="em">!</div><b>В бюджет '+rub(P.budget)+' не помещается ни один подходящий пакет.</b><br>Минимальные пакеты по вашему профилю: '+evals.filter(r=>r.over).sort((a,b)=>a.minCost-b.minCost).slice(0,3).map(r=>r.f.name+' — '+rub(r.minCost)).join('; ')+'. Увеличьте бюджет или расширьте районы.</div>';showResult();return;
+    box.innerHTML=resbar()+estimate+'<div class="card empty"><div class="em">!</div><b>В бюджет '+rub(P.budget)+' не помещается ни один подходящий пакет.</b><br>Минимальные пакеты по вашему профилю: '+evals.filter(r=>r.over).sort((a,b)=>a.minCost-b.minCost).slice(0,3).map(r=>r.f.name+' — '+rub(r.minCost)).join('; ')+'. Увеличьте бюджет или расширьте районы.</div>';showResult();return;
   }
-  let T={cost:0,contacts:0,leads:0,one:0};
-  plan.forEach(p=>{p.leads=p.contacts*p.r.f.lead/1000;p.pc=prodCost(p.r.f,p.units);T.cost+=p.cost;T.contacts+=p.contacts;T.leads+=p.leads;T.one+=p.pc.one});
-  const cpl=T.cost/T.leads, cpm=T.cost/T.contacts*1000;
-  const rev=P.econ?T.leads*P.conv/100*P.check:0, romi=P.econ?(rev-T.cost)/T.cost*100:0;
+  let T={cost:0,contacts:0,one:0};
+  plan.forEach(p=>{p.pc=prodCost(p.r.f,p.units);T.cost+=p.cost;T.contacts+=p.contacts;T.one+=p.pc.one});
+  const cpm=T.cost/T.contacts*1000;
   const totalCampaign=T.cost*P.dur+T.one;
-  const breakeven=P.econ?Math.ceil(T.cost/P.check):0;
-  const lo=Math.floor(T.leads*0.7),hi=Math.ceil(T.leads*1.3);
   const prof=[(P.biz.length?P.biz.map(b=>name(BIZ,b)).join(', '):'Ниша не указана'),'Районы: '+P.dist.map(d=>name(DIST,d)).join(', '),
     'ЦА: '+(P.aud.length?P.aud.map(a=>name(AUD,a)).join(', '):'не указано'),'Цель: '+(P.goal.length?P.goal.map(g=>name(GOAL,g)).join(', '):'не указано'),
-    'Бюджет: '+rub(P.budget)+'/мес · '+P.dur+' мес'+(P.econ?' · чек '+rub(P.check)+', конверсия '+P.conv+'%':'')].join('\n');
+    'Бюджет: '+rub(P.budget)+'/мес · '+P.dur+' мес'].join('\n');
   window.LAST={profile:prof,skipped:P.skipped.join('; '),dur:P.dur,
-    channels:plan.map(p=>({name:p.r.f.name,units:p.r.items?p.picked.join('; '):(p.units+' × '+p.r.f.unit),cost:p.cost,contacts:Math.round(p.contacts),leads:+p.leads.toFixed(1)})),
-    totals:{cost:T.cost,contacts:Math.round(T.contacts),lo,hi,cpl:Math.round(cpl),one:T.one}};
+    channels:plan.map(p=>({name:p.r.f.name,units:p.r.items?p.picked.join('; '):(p.units+' × '+p.r.f.unit),cost:p.cost,contacts:Math.round(p.contacts)})),
+    totals:{cost:T.cost,contacts:Math.round(T.contacts),one:T.one}};
 
-  let h='';
+  let h=estimate;
   const na='<span style="color:var(--mute)">не указано</span>';
   h+='<div class="profile"><b>'+(P.biz.length?P.biz.map(b=>name(BIZ,b)).join(', '):'Ниша не указана')+'</b> · '+P.dist.map(d=>name(DIST,d)).join(', ')+' · '+(S.mode.length?P.mode.map(m=>name(MODE,m).toLowerCase()).join(', '):'формат работы '+na)
    +'<br>ЦА: '+(P.aud.length?P.aud.map(a=>name(AUD,a).toLowerCase()).join(', '):na)+' · цель: '+(P.goal.length?P.goal.map(g=>name(GOAL,g).toLowerCase()).join(', '):na)+' · сезон: '+P.season.map(x=>name(SEASON,x).toLowerCase()).join(', ')+' · '+P.dur+' мес'
-   +(P.econ?' · чек '+rub(P.check)+', конверсия '+P.conv+'%':'')
    +(P.skipped.length?'<div style="margin-top:6px;font-size:12.5px">Пропущено: '+P.skipped.join('; ')+'. Подбор сделан по средним данным; чем больше ответов, тем точнее план.</div>':'')+'</div>';
   h+='<div class="kpis">';
-  h+='<div class="kpi hl"><div class="k">Бюджет в месяц</div><div class="v">'+rub(T.cost)+'</div><div class="d">из '+rub(P.budget)+(rem>0?' · резерв '+rub(rem):'')+'</div></div>';
-  h+='<div class="kpi"><div class="k">Контакты в месяц</div><div class="v">'+num(T.contacts)+'</div><div class="d">CPM '+rub(cpm)+' за 1 000</div></div>';
-  h+='<div class="kpi"><div class="k">Звонки и заявки в месяц</div><div class="v">'+lo+'–'+hi+'</div><div class="d">прогноз ≈ '+Math.round(T.leads)+'</div></div>';
-  h+='<div class="kpi"><div class="k">Стоимость заявки</div><div class="v">'+rub(cpl)+'</div><div class="d">в среднем по плану</div></div>';
-  h+=P.econ?'<div class="kpi"><div class="k">Выручка с рекламы / мес</div><div class="v">'+rub(rev)+'</div><div class="d" style="color:'+(romi>=0?'var(--ok)':'var(--warn)')+'">ROMI '+(romi>0?'+':'')+Math.round(romi)+'%</div></div>'
-    :'<div class="kpi"><div class="k">Выручка и ROMI</div><div class="v" style="font-size:15px;padding-top:6px">не рассчитаны</div><div class="d">укажите средний чек и конверсию на шаге 6</div></div>';
+  h+='<div class="kpi hl"><div class="k">Оценка бюджета в месяц</div><div class="v">'+rub(T.cost)+'</div><div class="d">из '+rub(P.budget)+(rem>0?' · резерв '+rub(rem):'')+'</div></div>';
+  h+='<div class="kpi"><div class="k">Оценка контактов в месяц</div><div class="v">'+num(T.contacts)+'</div><div class="d">CPM '+rub(cpm)+' за 1 000</div></div>';
   h+='<div class="kpi"><div class="k">Вся кампания, '+P.dur+' мес</div><div class="v">'+rub(totalCampaign)+'</div><div class="d">вкл. разово '+rub(T.one)+'</div></div>';
   h+='</div>';
 
   // структура бюджета
-  h+='<div class="card" style="padding:14px 16px"><b style="font-size:13px">Структура бюджета</b><div class="bar">';
+  h+='<div class="card" style="padding:14px 16px"><b style="font-size:13px">Примерная структура бюджета</b><div class="bar">';
   plan.forEach((p,i)=>{h+='<i style="width:'+(p.cost/T.cost*100)+'%;background:'+GROUPS[p.r.f.g][1]+';opacity:'+(1-i*0.12)+'"></i>'});
   h+='</div><div class="legend">'+plan.map(p=>'<span><i style="background:'+GROUPS[p.r.f.g][1]+'"></i>'+p.r.f.name.split(' (')[0]+' — '+Math.round(p.cost/T.cost*100)+'%</span>').join('')+'</div></div>';
 
   h+='<h2>Медиаплан</h2>';
   plan.forEach((p,i)=>{
-    const f=p.r.f, pcpl=p.cost/p.leads;
+    const f=p.r.f;
     const where=p.r.items?p.picked.join('; '):(p.units+' × '+f.unit+(p.r.inv!=null&&!p.r.viaTour?' (доступно в ваших районах: '+p.r.inv+')':''));
     const link=f.url?'<a href="https://www.reklamavsochi.ru/'+f.url+'" target="_blank" rel="noopener">страница на сайте ↗</a>':'<a href="https://www.reklamavsochi.ru/" target="_blank" rel="noopener">акция на главной ↗</a>';
     h+='<div class="mp"><div class="mp-h"><div class="rank">'+(i+1)+'</div><div class="mp-t"><b>'+f.name+'</b> <span class="pill">'+GROUPS[f.g][0]+'</span><div class="w">'+where+'</div></div>';
-    h+='<div class="mp-n"><div><span>в месяц</span><b>'+rub(p.cost)+'</b></div><div><span>контакты</span><b>'+num(p.contacts)+'</b></div><div><span>заявки</span><b>'+(p.leads<10?p.leads.toFixed(1).replace('.',','):Math.round(p.leads))+'</b></div><div><span>CPL</span><b>'+rub(pcpl)+'</b></div></div></div>';
+    h+='<div class="mp-n"><div><span>оценка в месяц</span><b>'+rub(p.cost)+'</b></div><div><span>примерно контактов</span><b>'+num(p.contacts)+'</b></div></div></div>';
     h+='<div class="mp-b"><b>Почему:</b> '+reason(p)+'<ul>';
     h+='<li>Цена: '+f.cost+' <span class="src '+(/оценка/.test(f.cost)?'e':'s')+'">'+(/оценка/.test(f.cost)?'частично оценка':'сайт')+'</span></li>';
     h+='<li>Охват: '+f.cNote+' <span class="src '+f.cs+'">'+(f.cs==='s'?'сайт':'оценка')+'</span>'+(p.r.k!==1?' · сезонный коэфф. ×'+String(p.r.k).replace('.',','):'')+'</li>';
-    h+='<li>Цифры с сайта: '+f.site.join(' · ')+'</li>';
+    h+='<li>Справочные данные: '+f.site.join(' · ')+'</li>';
     if(p.pc.one)h+='<li>Разово: '+rub(p.pc.one)+' ('+p.pc.parts.join(', ')+')</li>';
     h+='</ul>'+link+'</div></div>';
   });
 
   // таблица итогов
-  h+='<div class="tbl"><table><tr><th>Канал</th><th class="n">Месяц</th><th class="n">Контакты</th><th class="n">Заявки</th><th class="n">CPL</th><th class="n">Разово</th></tr>';
-  plan.forEach(p=>h+='<tr><td>'+p.r.f.name+'</td><td class="n">'+rub(p.cost)+'</td><td class="n">'+num(p.contacts)+'</td><td class="n">'+p.leads.toFixed(1).replace('.',',')+'</td><td class="n">'+rub(p.cost/p.leads)+'</td><td class="n">'+(p.pc.one?rub(p.pc.one):'—')+'</td></tr>');
-  h+='<tr style="font-weight:800"><td>Итого</td><td class="n">'+rub(T.cost)+'</td><td class="n">'+num(T.contacts)+'</td><td class="n">'+T.leads.toFixed(1).replace('.',',')+'</td><td class="n">'+rub(cpl)+'</td><td class="n">'+rub(T.one)+'</td></tr></table></div>';
+  h+='<div class="tbl"><table><tr><th>Канал</th><th class="n">Месяц</th><th class="n">Контакты</th><th class="n">Разово</th></tr>';
+  plan.forEach(p=>h+='<tr><td>'+p.r.f.name+'</td><td class="n">'+rub(p.cost)+'</td><td class="n">'+num(p.contacts)+'</td><td class="n">'+(p.pc.one?rub(p.pc.one):'—')+'</td></tr>');
+  h+='<tr style="font-weight:800"><td>Итого</td><td class="n">'+rub(T.cost)+'</td><td class="n">'+num(T.contacts)+'</td><td class="n">'+rub(T.one)+'</td></tr></table></div>';
 
   // исключённые
   const chosen=new Set(plan.map(p=>p.r.f.id));
@@ -746,19 +735,18 @@ function render(plan,evals,rem){
     const minS=Math.min(...plan.map(p=>p.r.score));
     const why=(r)=>{
       if(r.excl)return r.excl;
-      if(r.skip==='group')return 'хороший вариант (CPL ≈ '+rub(r.cpl)+'), но в плане уже 2 канала группы «'+GROUPS[r.f.g][0]+'»; держим микс, чтобы не зависеть от одного типа носителей';
+      if(r.skip==='group')return 'хороший вариант, но в плане уже 2 канала группы «'+GROUPS[r.f.g][0]+'»; держим микс, чтобы не зависеть от одного типа носителей';
       if(r.skip==='budget')return 'не поместился в остаток бюджета (мин. пакет '+rub(r.minCost)+'); первый кандидат при увеличении бюджета';
-      if(r.score<minS)return 'ниже соответствие вашей нише, ЦА и цели: балл '+r.score.toFixed(1).replace('.',',')+' против '+minS.toFixed(1).replace('.',',')+' у выбранных (CPL ≈ '+rub(r.cpl)+')';
-      return 'лимит каналов для бюджета: лучше глубже использовать выбранные (CPL ≈ '+rub(r.cpl)+')';
+      if(r.score<minS)return 'ниже соответствие вашей нише, ЦА и цели: балл '+r.score.toFixed(1).replace('.',',')+' против '+minS.toFixed(1).replace('.',',')+' у выбранных';
+      return 'лимит каналов для бюджета: лучше глубже использовать выбранные';
     };
     strong.forEach(({r})=>h+='<li><b>'+r.f.name+'</b>: '+why(r)+'</li>');
     h+='</ul>';
   }
 
   // тезис
-  h+=thesis(plan,T,cpl,rev,romi,breakeven,lo,hi);
+  h+=thesis(plan,T);
   h+='<div class="cta"><div><b>Забронировать этот медиаплан</b><br><span style="font-size:13px;color:var(--ink2)">Медиабук · БЦ «Олимпийский», Виноградная 20а, оф. 35 · +7 (862) 237-12-30 · +7 (918) 918-03-40 (Анна) · +7 (988) 237-12-30 (Дарья)</span></div><a class="btn p" style="flex:none;text-decoration:none" href="https://t.me/+79189180340" target="_blank" rel="noopener">Отправить в Telegram</a></div>';
-  h+='<p class="note">Прогноз заявок — модель: контакты × коэффициент отклика носителя (заявок на 1 000 контактов), коридор ±30%. Цены «от» с reklamavsochi.ru; итоговую стоимость, скидки за объём и занятость поверхностей подтверждает менеджер. Метка «оценка» — допущение там, где сайт не публикует охват или точный прайс.</p>';
   box.innerHTML=resbar()+h;showResult();
 }
 function resbar(){return '<div class="resbar"><h2>Ваш медиаплан</h2><div style="display:flex;gap:8px"><button class="btn s" onclick="editAnswers()">← Изменить ответы</button><button class="btn s" onclick="resetAll()">Новый подбор</button></div></div>'}
@@ -772,21 +760,18 @@ function reason(p){
   const top=P.biz.filter(b=>(f.biz[b]||0)>=3);if(top.length)t+='. Формат профильный для '+(top.length>1?'ниш ':'ниши ')+top.map(b=>'«'+name(BIZ,b)+'»').join(', ');
   return t+'.';
 }
-function thesis(plan,T,cpl,rev,romi,be,lo,hi){
+function thesis(plan,T){
   const localCost=plan.filter(p=>p.r.f.local).reduce((a,p)=>a+p.cost,0);
-  const best=[...plan].sort((a,b)=>a.cost/a.leads-b.cost/b.leads)[0];
   const reach=[...plan].sort((a,b)=>b.contacts-a.contacts)[0];
   const siteN=plan.filter(p=>p.r.f.cs==='s').length;
   let li=[];
   if(localCost>0)li.push('<b>'+Math.round(localCost/T.cost*100)+'% бюджета — гиперлокальные носители</b> в ваших районах ('+plan.filter(p=>p.r.f.local).map(p=>p.r.f.name.toLowerCase().split(' (')[0]).join(', ')+'). '+(P.mode.includes('point')?'Клиенты точки с локальным сервисом живут в радиусе 1–3 км, поэтому платить за охват всего города дороже, чем бить по соседям.':'Это дешёвые касания с жителями, без лишнего охвата.'));
-  li.push('<b>Самая дешёвая заявка — «'+best.r.f.name.split(' (')[0]+'»: '+rub(best.cost/best.leads)+'</b> против '+rub(cpl)+' в среднем по плану. Этот канал — ядро плана, остальные добирают охват.');
   const outd=plan.filter(p=>p.r.f.g==='street'||p.r.f.g==='transit');
   if(outd.length)li.push('<b>Наружная и транспортная реклама — '+Math.round(outd.reduce((a,p)=>a+p.cost,0)/T.cost*100)+'% бюджета</b> ('+outd.map(p=>p.r.f.name.toLowerCase().split(' (')[0]).join(', ')+'). Это приоритет плана: в Сочи большая часть потока на улицах и магистралях, такую рекламу видят и местные, и туристы, и её нельзя пролистать.');
-  if(reach!==best)li.push('<b>Охват даёт «'+reach.r.f.name.split(' (')[0]+'»: '+num(reach.contacts)+' контактов в месяц</b>, '+Math.round(reach.contacts/T.contacts*100)+'% всех касаний. Он прогревает аудиторию, и заявки с локальных носителей становятся дешевле.');
-  li.push('<b>План держится на цифрах Медиабук:</b> инвентарь по районам, цены «от», выходы в сутки'+(siteN?', а у '+siteN+' из '+plan.length+' каналов охват тоже взят с сайта (посещаемость, пассажиропоток, Mediascope)':'')+'. Каждый канал отобран из '+F.length+' направлений по соответствию нише, ЦА, цели и сезону.');
-  if(P.econ)li.push('<b>Окупаемость:</b> при чеке '+rub(P.check)+' и конверсии '+P.conv+'% ожидается '+lo+'–'+hi+' заявок и ≈ '+rub(rev)+' выручки в месяц'+(romi>=0?' (ROMI +'+Math.round(romi)+'%).':' (ROMI '+Math.round(romi)+'%: на старте реклама работает на узнаваемость, окупаемость растёт со 2–3-го месяца за счёт частоты).')+' Для безубыточности нужно '+be+' продаж в месяц.');
+  li.push('<b>Больше всего контактов даёт «'+reach.r.f.name.split(' (')[0]+'»:</b> около '+num(reach.contacts)+' в месяц, примерно '+Math.round(reach.contacts/T.contacts*100)+'% всех контактов плана.');
+  li.push('<b>Справочные данные Медиабук:</b> инвентарь по районам, цены «от», выходы в сутки'+(siteN?', а у '+siteN+' из '+plan.length+' каналов охват тоже взят с сайта (посещаемость, пассажиропоток, Mediascope)':'')+'. Каждый канал отобран из '+F.length+' направлений по соответствию нише, ЦА, цели и сезону.');
   if(P.dur>=3)li.push('<b>Срок '+P.dur+' мес оправдан:</b> разовые затраты ('+rub(T.one)+') распределяются по всей кампании, а у Медиабук есть скидки за период и объём, что даст запас для торга.');
-  const q=(!P.goal.length||P.goal.includes('leads')||P.goal.includes('opening'))?'Эти источники выбраны, потому что дают самую дешёвую заявку от жителей ваших районов и вашей ЦА, а охватный канал страхует от «невидимости». Каждая цифра проверяема: инвентарь и цены взяты со страниц Медиабук.':P.goal.includes('event')?'Эти источники выбраны, потому что за короткий срок дают максимум касаний с аудиторией события: анонсы там, где люди отдыхают и ищут, куда пойти.':'Эти источники выбраны, потому что дают максимальное число контактов на рубль (CPM '+rub(T.cost/T.contacts*1000)+') именно с вашей ЦА, а не со всем городом.';
+  const q='Носители подобраны по соответствию вашей аудитории, нише, цели и сезонам. Ориентировочная стоимость тысячи контактов — '+rub(T.cost/T.contacts*1000)+'.';
   return '<div class="thesis"><h2>Вывод: почему именно эти источники</h2><ol>'+li.map(x=>'<li>'+x+'</li>').join('')+'</ol><div class="q">'+q+'</div></div>';
 }
 
